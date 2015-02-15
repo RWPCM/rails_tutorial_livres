@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<body>
+  <% @livres.each do |livre| %>
+      <h3>Titre</h3>
+      <p><%= livre.titre %></p>
+      <h4>Résumé</h4>
+      <p><%= livre.resume %></p>
+      <h4>Auteur</h4>
+      <p><%= livre.auteur %></p>
+      <br>
+        <button><%= link_to 'Montrer', livre %></button>
+      <button><%= link_to 'Modifier', edit_livre_path(livre) %></button>
+      <button><%= link_to 'Supprimer', livre, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %>
+      </button>
+  <% end %>
+</body>
+
+<br>
+<br>
+
+
+<%= link_to 'Nouveau livre', new_livre_path %>
